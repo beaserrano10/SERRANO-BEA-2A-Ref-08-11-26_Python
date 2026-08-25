@@ -1,0 +1,62 @@
+# SECTION 2: HYPERBOLIC FUNCTIONS
+# math.sinh, math.cosh, math.tanh, math.asinh, math.acosh, math.atanh
+def hyperbolic_menu():
+    while True:
+        print_header("HYPERBOLIC FUNCTIONS")
+        print("1. Compute sinh, cosh, tanh of a value")
+        print("2. Compute asinh of a value")
+        print("3. Compute acosh of a value")
+        print("4. Compute atanh of a value")
+        print("5. Compute all hyperbolic functions")
+        print("0. Back to Main Menu")
+
+        choice = safe_input("Enter your choice: ").strip()
+
+        if choice == "1":
+            val = get_float("Enter a value: ")
+            print(f"\nsinh({val}) = {math.sinh(val)}")
+            print(f"cosh({val}) = {math.cosh(val)}")
+            print(f"tanh({val}) = {math.tanh(val)}")
+
+        elif choice == "2":
+            val = get_float("Enter a value: ")
+            print(f"\nasinh({val}) = {math.asinh(val)}")
+
+        elif choice == "3":
+            val = get_float("Enter a value: ")
+            try:
+                print(f"\nacosh({val}) = {math.acosh(val)}")
+            except ValueError:
+                print("\nacosh(x) needs x >= 1. Skipped.")
+
+        elif choice == "4":
+            val = get_float("Enter a value: ")
+            try:
+                print(f"\natanh({val}) = {math.atanh(val)}")
+            except ValueError:
+                print("\natanh(x) needs -1 < x < 1. Skipped.")
+
+        elif choice == "5":
+            val = get_float("Enter a value: ")
+            print(f"\nsinh({val}) = {math.sinh(val)}")
+            print(f"cosh({val}) = {math.cosh(val)}")
+            print(f"tanh({val}) = {math.tanh(val)}")
+            print(f"asinh({val}) = {math.asinh(val)}")
+
+            try:
+                print(f"\nacosh({val}) = {math.acosh(val)}")
+            except ValueError:
+                print("\nacosh(x) needs x >= 1. Skipped.")
+
+            try:
+                print(f"\natanh({val}) = {math.atanh(val)}")
+            except ValueError:
+                print("\n atanh(x) needs -1 < x < 1. Skipped.")
+
+        elif choice == "0":
+            break
+
+        else:
+            print("\nInvalid choice. Please try again.")
+
+        pause()
