@@ -1,0 +1,45 @@
+#MAIN MENU / ENTRY POINT
+#CODE PROPER
+def main():
+    print("=" * 70)
+    print("WELCOME TO THE MATH MODULE MINI SYSTEM")
+    print("A learning tool for Python's math' and random'modules")
+    print("=" * 70)
+
+    while True:
+        print("""
+MAIN MENU
+    1. Trigonometric (circular)functions    - sin, cos, tan, pi, radius...
+    2. Hyperbolic functions                 - sinh, cosh, tanh, asinh...
+    3. Exponential & logarithmic functions  - e, exp, log, log10, log2, pow
+    4. General-purpose math functions       - ceil, floor, trunc, factorial, hypot
+    5. Random module                        - seed, randrange, randint, choice, sample
+    0. Exit the program
+""")
+
+        choice = safe_input("Enter your choice (0-5): ").strip()
+
+        if choice == "1":
+            trig_menu()
+        elif choice == "2":
+            hyperbolic_menu()
+        elif choice == "3":
+            exponent_menu()
+        elif choice == "4":
+            general_menu()
+        elif choice == "5":
+            random_menu()
+        elif choice == "0":
+            print("\nThank you for exploring the math and random modules.")
+            print("Goodbye!")
+            break
+        else:
+            print("\nInvalid choice. Please enter a number from 0 to 5. ")
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\nProgram interrupted by user. Goodbye!")
+    except SystemExit:
+        pass
