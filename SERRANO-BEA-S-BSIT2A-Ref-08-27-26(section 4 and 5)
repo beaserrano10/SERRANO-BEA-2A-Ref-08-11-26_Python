@@ -1,0 +1,147 @@
+import math
+import random
+
+
+
+# SECTION 4: GENERAL-PURPOSE MATH FUNCTIONS
+
+
+def section4_menu():
+    while True:
+        print("\nSECTION 4: GENERAL-PURPOSE MATH FUNCTIONS")
+        print("1. Compute ceil, floor, and trunc of a value")
+        print("2. Compute a factorial")
+        print("3. Compute the hypotenuse of a right triangle")
+        print("0. Back to Main Menu")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            try:
+                value = float(input("Enter a number: "))
+
+                print(f"ceil({value})  = {math.ceil(value)}")
+                print(f"floor({value}) = {math.floor(value)}")
+                print(f"trunc({value})  = {math.trunc(value)}")
+
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
+        elif choice == "2":
+            try:
+                number = int(input("Enter a non-negative integer: "))
+
+                if number < 0:
+                    print("Factorial is only defined for non-negative integers.")
+                else:
+                    print(f"{number}! = {math.factorial(number)}")
+
+            except ValueError:
+                print("Invalid input. Please enter a whole number.")
+
+        elif choice == "3":
+            try:
+                side_a = float(input("Enter the first side: "))
+                side_b = float(input("Enter the second side: "))
+
+                if side_a < 0 or side_b < 0:
+                    print("Side lengths cannot be negative.")
+                else:
+                    hypotenuse = math.hypot(side_a, side_b)
+                    print(f"Hypotenuse = {hypotenuse}")
+
+            except ValueError:
+                print("Invalid input. Please enter numbers.")
+
+        elif choice == "0":
+            break
+
+        else:
+            print("Invalid choice. Please select 0-3.")
+
+
+# SECTION 5: THE RANDOM MODULE
+
+
+def section5_menu():
+    while True:
+        print("\nSECTION 5: THE RANDOM MODULE")
+        print("1. Set a seed (so results can be repeated)")
+        print("2. Generate a number with randrange()")
+        print("3. Generate a number with randint()")
+        print("4. Pick a random item from a list with choice()")
+        print("5. Draw several UNIQUE items from a list with sample()")
+        print("0. Back to Main Menu")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            try:
+                seed_value = int(input("Enter a seed value: "))
+                random.seed(seed_value)
+                print(f"Random seed set to {seed_value}.")
+
+            except ValueError:
+                print("Invalid input. Please enter an integer.")
+
+        elif choice == "2":
+            try:
+                start = int(input("Enter the start value: "))
+                stop = int(input("Enter the stop value (exclusive): "))
+
+                if start >= stop:
+                    print("Start must be less than stop.")
+                else:
+                    result = random.randrange(start, stop)
+                    print(f"randrange({start}, {stop}) = {result}")
+
+            except ValueError:
+                print("Invalid input. Please enter integers.")
+
+        elif choice == "3":
+            try:
+                start = int(input("Enter the minimum value: "))
+                stop = int(input("Enter the maximum value: "))
+
+                if start > stop:
+                    print("Minimum cannot be greater than maximum.")
+                else:
+                    result = random.randint(start, stop)
+                    print(f"randint({start}, {stop}) = {result}")
+
+            except ValueError:
+                print("Invalid input. Please enter integers.")
+
+        elif choice == "4":
+            items = input(
+                "Enter list items separated by commas: "
+            ).split(",")
+
+            items = [item.strip() for item in items if item.strip()]
+
+            if not items:
+                print("The list cannot be empty.")
+            else:
+                result = random.choice(items)
+                print(f"Random choice: {result}")
+
+        elif choice == "5":
+            items = input(
+                "Enter list items separated by commas: "
+            ).split(",")
+
+            items = [item.strip() for item in items if item.strip()]
+
+            if not items:
+                print("The list cannot be empty.")
+                continue
+
+            try:
+                amount = int(
+                    input(f"How many unique items? (1-{len(items)}): ")
+                )
+
+                if amount < 1 or amount > len(items):
+                    print(
+                        f"Please enter a number from 1 to {len(items)}."
+                 
