@@ -45,6 +45,28 @@ if __name__ == "__main__":
         pass
 
 
+  print(f"\nlog({x}, base {b}) = {math.log(x, b)}")
+        except (ValueError, ZeroDivisionError):
+            print("Invalid input for a logarithm with that base.")
+
+    elif choice == "5":
+        x = get_float("Enter the base x: ")
+        y = get_float("Enter the exponent y: ")
+        try:
+            print(f"\nBuilt-in pow({x}, {y}) = {pow(x, y)}")
+            print(f"math.pow({x}, {y}) = {math.pow(x, y)}")
+            print("(Note: pow() can return an int for integer inputs; "
+                  "math.pow() always returns a float.)")
+        except ValueError:
+            print("math.pow() requires a valid real-number result.")
+
+    elif choice == "0":
+        return
+
+    else:
+        print("\nInvalid choice.")
+
+    pause()
 
 
 
