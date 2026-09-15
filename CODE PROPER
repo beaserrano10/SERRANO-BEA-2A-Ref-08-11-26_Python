@@ -45,7 +45,64 @@ if __name__ == "__main__":
         pass
 
 
-  print(f"\nlog({x}, base {b}) = {math.log(x, b)}")
+  elif choice == "5":
+            val = get_float("Enter a value: ")
+            print(f"\nsinh({val}) = {math.sinh(val)}")
+            print(f"cosh({val}) = {math.cosh(val)}")
+            print(f"tanh({val}) = {math.tanh(val)}")
+            print(f"asinh({val}) = {math.asinh(val)}")
+
+            try:
+                print(f"\nacosh({val}) = {math.acosh(val)}")
+            except ValueError:
+                print("\nacosh(x) needs x >= 1. Skipped.")
+
+            try:
+                print(f"\natanh({val}) = {math.atanh(val)}")
+            except ValueError:
+                print("\n atanh(x) needs -1 < x < 1. Skipped.")
+
+        elif choice == "0":
+            break
+
+        else:
+            print("\nInvalid choice. Please try again.")
+
+        pause()
+
+# SECTION 3: EXPONENTIATION AND LOGARITHMS
+def exponent_menu():
+    print_header("EXPONENTIATION AND LOGARITHMS")
+    print("""1. Show the value of e
+             2. Compute exp(x)
+             3. Compute the natural log, log10, and log2 of a value
+             4. Compute log(x, base) with a custom base
+             5. Compute pow(x, y) - built-in vs math.pow
+             0. Back to Main Menu
+    """)
+    choice = safe_input("Enter your choice: ").strip()
+
+    if choice == "1":
+        print(f"\nmath.e = {math.e}")
+
+    elif choice == "2":
+        x = get_float("Enter x: ")
+        print(f"\nexp({x}) = e⌃{x} = {math.exp(x)}")
+
+    elif choice == "3":
+        x = get_float("Enter a positive number x: ")
+        try:
+            print(f"\nlog({x}) = {math.log(x)}")
+            print(f"\nlog10({x}) = {math.log10(x)}")
+            print(f"\nlog2({x}) = {math.log2(x)}")
+        except ValueError:
+            print("Logarithms require x > 0. Please try again.")
+
+    elif choice == "4":
+        x = get_float("Enter x (must be > 0): ")
+        b = get_float("Enter the base b (must be > 0 and != 1): ")
+        try:
+            print(f"\nlog({x}, base {b}) = {math.log(x, b)}")
         except (ValueError, ZeroDivisionError):
             print("Invalid input for a logarithm with that base.")
 
@@ -67,7 +124,3 @@ if __name__ == "__main__":
         print("\nInvalid choice.")
 
     pause()
-
-
-
-
